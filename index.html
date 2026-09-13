@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Evaluación de software a Amazon — Modelo de McCall</title>
+<link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-cyber dark-mode">
+
+  <!-- Luz interactiva que sigue al ratón (Spotlight) -->
+  <div class="mouse-glow" id="mouseGlow"></div>
+
+  <!-- ============================= HERO ============================= -->
+  <header class="hero">
+    <button id="themeToggle" class="theme-toggle" aria-pressed="true" aria-label="Cambiar modo visual">
+      <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+      </svg>
+      <span id="themeLabel">Modo claro</span>
+    </button>
+
+    <div class="hero-grid"></div>
+
+    <div class="hero-inner-wrap">
+      <div class="hero-inner">
+        <div class="hero-copy animate-on-scroll">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+            <img id="headerLogo" src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Logo Software" style="height: 24px; filter: brightness(0) invert(1);">
+            <span class="hero-eyebrow" style="margin-bottom: 0;">✨ Informe de evaluación de calidad de software</span>
+          </div>
+          <h1 class="hero-title serif" id="mainTitle">Evaluación de software bajo el Modelo de McCall</h1>
+          <p class="hero-desc" id="mainDesc">
+            Un análisis de calidad inmersivo centrado en las tres capacidades del modelo — operación,
+            transición y revisión — aplicado a la plataforma evaluada.
+          </p>
+          <div class="chip-row">
+            <span class="stat-chip"><span class="stat-dot" style="background:var(--operacion)"></span>Operación · <span id="chipOp">33.9/40</span></span>
+            <span class="stat-chip"><span class="stat-dot" style="background:var(--transicion)"></span>Transición · <span id="chipTrans">25.9/30</span></span>
+            <span class="stat-chip"><span class="stat-dot" style="background:var(--revision)"></span>Revisión · <span id="chipRev">24.1/30</span></span>
+          </div>
+        </div>
+
+        <div class="score-ring animate-on-scroll" id="scoreRing">
+          <svg width="180" height="180" viewBox="0 0 180 180">
+            <circle class="ring-track" cx="90" cy="90" r="80" stroke-width="12"></circle>
+            <circle class="ring-fill" id="ringFill" cx="90" cy="90" r="80" stroke-width="12"
+                    stroke-dasharray="502.6" stroke-dashoffset="502.6"></circle>
+          </svg>
+          <div class="score-ring-label">
+            <span class="score-ring-value" id="scoreValue">0.0</span>
+            <span class="score-ring-suffix">sobre 100</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================= NAV STICKY ============================= -->
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <div class="nav-scroll" id="navScroll">
+        <button class="nav-pill active" data-target="ficha">Ficha técnica</button>
+        <button class="nav-pill" data-target="teoria">Marco teórico</button>
+        <button class="nav-pill" data-target="escala">Escala</button>
+        <button class="nav-pill" data-target="aplicacion">Aplicación</button>
+        <button class="nav-pill" data-target="resultados">Resultados</button>
+        <button class="nav-pill" data-target="conclusion">Conclusión</button>
+        <button class="nav-pill" data-target="referencias">Referencias</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- FICHA TÉCNICA -->
+    <section id="ficha" class="section-title animate-on-scroll">
+      <p class="section-eyebrow">Software evaluado</p>
+      <h2 class="section-heading">Ficha técnica</h2>
+    </section>
+    <section class="animate-on-scroll">
+      <div class="table-wrap">
+        <div class="table-scroll">
+          <table class="report-table">
+            <tbody>
+              <tr><td class="sticky-col nowrap" style="width:200px;font-weight:600;">Nombre del software</td><td>Amazon</td></tr>
+              <tr><td class="sticky-col nowrap" style="width:200px;font-weight:600;">Repositorio</td><td>Amazon es una plataforma de comercio electrónico que permite a los usuarios buscar, comparar y adquirir productos y servicios a través de Internet. La plataforma fue creada como una empresa de comercio electrónico y servicios tecnológicos.</td></tr>
+              <tr><td class="sticky-col nowrap" style="width:200px;font-weight:600;">Descripción</td><td>Amazon es una plataforma web y aplicación móvil orientada a la compra y venta de productos. Permite a los usuarios crear cuentas, buscar productos mediante categorías y filtros, consultar características y opiniones, agregar productos al carrito, realizar pagos y hacer seguimiento de los pedidos. Además, integra diferentes servicios relacionados con vendedores, métodos de pago y empresas de logística.</td></tr>
+              <tr><td class="sticky-col nowrap" style="width:200px;font-weight:600;">Licencia de uso</td><td>Amazon es un servicio propietario. Su plataforma, aplicaciones, contenido y software están sujetos a los términos y condiciones establecidos por Amazon. Los usuarios pueden acceder al servicio de acuerdo con las condiciones de uso establecidas por la empresa.</td></tr>
+              <tr><td class="sticky-col nowrap" style="width:200px;font-weight:600;">Área de aplicación</td><td>El software se aplica principalmente en el área del comercio electrónico, permitiendo a usuarios y empresas realizar actividades de compra y venta de productos mediante Internet. También facilita la gestión de pedidos, pagos, productos, vendedores y entregas.</td></tr>
+              <tr><td class="sticky-col nowrap" style="width:200px;font-weight:600;">Link de acceso</td><td><a href="https://www.amazon.com/" target="_blank" rel="noopener" class="external-link">https://www.amazon.com/</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARCO TEÓRICO -->
+    <section id="teoria" class="section-title animate-on-scroll">
+      <p class="section-eyebrow">Componente teórico</p>
+      <h2 class="section-heading">Las tres capacidades del Modelo de McCall</h2>
+    </section>
+    <section class="animate-on-scroll">
+      <p class="section-lead">Presentado en 1977, el modelo propone una serie de factores de calidad conocidos como factores de McCall (McCall, Richards & Walters, 1977). Su idea central es descomponer el concepto genérico de calidad en tres capacidades importantes para un producto software — operación, transición y revisión — siempre desde la mirada del usuario final (LEM Evaluación de la Calidad Educativa, Capítulo II, CVUDES; Rey, A., 2015).</p>
+      <div class="card-grid">
+        <div class="theory-card theory-card--operacion">
+          <h3>Operación</h3>
+          <p>Evalúa el software tal como se usa día a día: si hace lo que debe (corrección), si es confiable, si es fácil de usar y si protege datos y transacciones (integridad).</p>
+          <p class="factor-list">Corrección · Confiabilidad · Usabilidad · Integridad o Seguridad</p>
+        </div>
+        <div class="theory-card theory-card--transicion">
+          <h3>Transición</h3>
+          <p>Mide qué tan bien se adapta el software a nuevos entornos: distintos dispositivos, sistemas operativos y su capacidad de integrarse o reutilizarse en otros contextos.</p>
+          <p class="factor-list">Portabilidad · Reusabilidad · Interoperabilidad</p>
+        </div>
+        <div class="theory-card theory-card--revision">
+          <h3>Revisión</h3>
+          <p>Analiza la capacidad del software de evolucionar: qué tan fácil es mantenerlo, adaptarlo a cambios y verificarlo mediante pruebas sin romper lo que ya funciona.</p>
+          <p class="factor-list">Facilidad de Mantenimiento · Flexibilidad · Facilidad de Prueba</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESCALA -->
+    <section id="escala" class="section-title animate-on-scroll">
+      <p class="section-eyebrow">Criterio de valoración</p>
+      <h2 class="section-heading">Escala de valoraciones</h2>
+    </section>
+    <section class="animate-on-scroll">
+      <div class="table-wrap" style="max-width: 500px;">
+        <div class="table-scroll">
+          <table class="report-table">
+            <thead><tr><th>Descripción</th><th class="text-center">Cuantificación</th></tr></thead>
+            <tbody>
+              <tr><td>Excelente</td><td class="text-center font-bold text-amber">4</td></tr>
+              <tr><td>Bueno</td><td class="text-center font-bold text-blue">3</td></tr>
+              <tr><td>Regular</td><td class="text-center font-bold text-muted">2</td></tr>
+              <tr><td>Malo</td><td class="text-center font-bold text-muted">1</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- APLICACIÓN -->
+    <section id="aplicacion" class="section-title animate-on-scroll">
+      <p class="section-eyebrow">Metodología aplicada</p>
+      <h2 class="section-heading">Aplicación del Modelo de McCall a Amazon</h2>
+    </section>
+    <section class="animate-on-scroll">
+      <h3 class="subheading">Cuestionario completo</h3>
+      <div class="table-wrap">
+        <div class="table-scroll">
+          <table class="report-table">
+            <thead>
+              <tr>
+                <th>Métrica</th>
+                <th>Descripción</th>
+                <th>Pregunta</th>
+                <th class="text-center">Puntaje esperado</th>
+                <th class="text-center">Puntaje obtenido</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-weight:600;">Compleción de las funciones</td>
+                <td class="muted-cell">Grado en que se pudieron implementar las funciones requeridas.</td>
+                <td>¿La plataforma integra de forma fluida todas las funciones de búsqueda, filtros avanzados, carrito y seguimiento de pedidos, aunque la visualización de anuncios de terceros sature parcialmente la interfaz?</td>
+                <td class="text-center"><span class="tag tag--good">Excelente</span></td>
+                <td class="text-center"><span class="tag tag--ok">Bueno</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">Complejidad</td>
+                <td class="muted-cell">Complejidad del sistema.</td>
+                <td>¿El sistema logra mantener una estructura organizada a pesar del inmenso catálogo, logrando que los menús y categorías sigan siendo accesibles para el usuario promedio?</td>
+                <td class="text-center"><span class="tag tag--good">Excelente</span></td>
+                <td class="text-center"><span class="tag tag--ok">Bueno</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">Concisión</td>
+                <td class="muted-cell">Efectividad del recurso.</td>
+                <td>¿El diseño permite completar la ruta desde la búsqueda hasta la confirmación de compra sin desvíos excesivos, cumpliendo con estándares de rapidez como la compra en pocos clics?</td>
+                <td class="text-center"><span class="tag tag--good">Excelente</span></td>
+                <td class="text-center"><span class="tag tag--neutral">Aceptable</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">Consistencia</td>
+                <td class="muted-cell">Diseño uniforme del programa empleando técnicas de documentación.</td>
+                <td>¿La interfaz visual, los menús y el proceso de pago mantienen un diseño coherente entre la versión web de escritorio y las aplicaciones móviles principales?</td>
+                <td class="text-center"><span class="tag tag--good">Excelente</span></td>
+                <td class="text-center"><span class="tag tag--ok">Bueno</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">Eficiencia de ejecución</td>
+                <td class="muted-cell">Rendimiento en tiempo de ejecución.</td>
+                <td>¿El tiempo de respuesta de la plataforma se mantiene estable en momentos de tráfico elevado cotidianos, gestionando los recursos del servidor de manera óptima?</td>
+                <td class="text-center"><span class="tag tag--good">Excelente</span></td>
+                <td class="text-center"><span class="tag tag--ok">Bueno</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">Estandarización de datos y estructuras</td>
+                <td class="muted-cell">Manejo de tipos de datos y estructuras uniformes a lo largo del programa.</td>
+                <td>¿La plataforma aplica validaciones consistentes en los atributos básicos de los productos (título, precio, descripciones) a pesar de la gran diversidad de proveedores?</td>
+                <td class="text-center"><span class="tag tag--good">Excelente</span></td>
+                <td class="text-center"><span class="tag tag--ok">Bueno</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">Exactitud de cálculo y de control</td>
+                <td class="muted-cell">Precisión obtenida en los cálculos.</td>
+                <td>¿El sistema calcula con precisión impuestos, tarifas de importación y el total de la compra sin errores de redondeo o desajustes regionales?</td>
+                <td class="text-center"><span class="tag tag--good">Excelente</span></td>
+                <td class="text-center"><span class="tag tag--ok">Bueno</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">Independencia del software</td>
+                <td class="muted-cell">Grado de independencia del software en relación al sistema operativo y otras limitaciones del entorno.</td>
+                <td>¿La plataforma se ejecuta con fluidez en la mayoría de navegadores web modernos y sistemas operativos móviles, aunque en algunos navegadores alternativos se presenten ligeros retrasos en la carga de scripts pesados?</td>
+                <td class="text-center"><span class="tag tag--good">Excelente</span></td>
+                <td class="text-center"><span class="tag tag--ok">Bueno</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">Modularidad</td>
+                <td class="muted-cell">Independencia funcional de los componentes.</td>
+                <td>¿Los microservicios de catálogo, pagos y logística funcionan de forma modular, permitiendo que fallos parciales aíslen el error sin colapsar la totalidad de la plataforma?</td>
+                <td class="text-center"><span class="tag tag--good">Excelente</span></td>
+                <td class="text-center"><span class="tag tag--ok">Bueno</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">Operatividad</td>
+                <td class="muted-cell">Facilidad de operación.</td>
+                <td>¿La plataforma proporciona herramientas claras de gestión de pedidos y devoluciones para el usuario, aunque el proceso de autoservicio a veces requiera navegar por múltiples menús de ayuda?</td>
+                <td class="text-center"><span class="tag tag--good">Excelente</span></td>
+                <td class="text-center"><span class="tag tag--ok">Bueno</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">Seguridad</td>
+                <td class="muted-cell">Disponibilidad de elementos de protección del recurso y la información.</td>
+                <td>¿El sistema cuenta con autenticación de dos pasos, cifrado de tarjetas de crédito y un riguroso control de acceso a los datos del usuario frente a intentos de vulneración externa?</td>
+                <td class="text-center"><span class="tag tag--good">Excelente</span></td>
+                <td class="text-center"><span class="tag tag--ok">Bueno</span></td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;">Simplicidad</td>
+                <td class="muted-cell">Grado de dificultad para entender el recurso.</td>
+                <td>¿La plataforma ofrece un entorno visual comprensible para el usuario común, a pesar de que la gran densidad de opciones, banners y recomendaciones pueda confundir inicialmente a usuarios sin experiencia?</td>
+                <td class="text-center"><span class="tag tag--good">Excelente</span></td>
+                <td class="text-center"><span class="tag tag--ok">Bueno</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <h3 class="subheading" style="margin-top: 40px;">Consolidación completa de puntajes</h3>
+      <div class="table-wrap">
+        <div class="table-scroll">
+          <table class="report-table text-center text-sm">
+            <thead>
+              <tr>
+                <th class="text-left sticky-col" rowspan="2">Métrica</th>
+                <th colspan="4" class="cap-header--operacion">Operación</th>
+                <th colspan="3" class="cap-header--transicion">Transición</th>
+                <th colspan="3" class="cap-header--revision">Revisión</th>
+              </tr>
+              <tr>
+                <th>Corrección</th><th>Confiabilidad</th><th>Usabilidad</th><th>Integridad o Seguridad</th>
+                <th>Portabilidad</th><th>Reusabilidad</th><th>Interoperabilidad</th>
+                <th>Facilidad Mantenimiento</th><th>Flexibilidad</th><th>Facilidad de Prueba</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="text-left sticky-col font-medium">Compleción de las funciones</td><td>—</td><td class="font-bold">3</td><td class="font-bold">4</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+              <tr><td class="text-left sticky-col font-medium">Complejidad</td><td>—</td><td class="font-bold">3</td><td class="font-bold">3</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td class="font-bold">3</td></tr>
+              <tr><td class="text-left sticky-col font-medium">Concisión</td><td>—</td><td>—</td><td class="font-bold">3</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+              <tr><td class="text-left sticky-col font-medium">Consistencia</td><td class="font-bold">4</td><td class="font-bold">3</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+              <tr><td class="text-left sticky-col font-medium">Eficiencia de ejecución</td><td>—</td><td class="font-bold">3</td><td class="font-bold">4</td><td class="font-bold">4</td><td class="font-bold">3</td><td>—</td><td>—</td><td class="font-bold">3</td><td class="font-bold">3</td><td class="font-bold">3</td></tr>
+              <tr><td class="text-left sticky-col font-medium">Estandarización de datos y estructuras</td><td class="font-bold">3</td><td>—</td><td>—</td><td>—</td><td>—</td><td class="font-bold">4</td><td class="font-bold">4</td><td>—</td><td class="font-bold">3</td><td>—</td></tr>
+              <tr><td class="text-left sticky-col font-medium">Exactitud de cálculo y de control</td><td>—</td><td class="font-bold">4</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+              <tr><td class="text-left sticky-col font-medium">Independencia del software</td><td>—</td><td>—</td><td class="font-bold">4</td><td class="font-bold">4</td><td class="font-bold">4</td><td>—</td><td>—</td><td class="font-bold">3</td><td class="font-bold">3</td><td class="font-bold">3</td></tr>
+              <tr><td class="text-left sticky-col font-medium">Modularidad</td><td class="font-bold">3</td><td class="font-bold">4</td><td class="font-bold">4</td><td>—</td><td>—</td><td class="font-bold">4</td><td class="font-bold">4</td><td>—</td><td>—</td><td>—</td></tr>
+              <tr><td class="text-left sticky-col font-medium">Operatividad</td><td class="font-bold">4</td><td>—</td><td class="font-bold">3</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+              <tr><td class="text-left sticky-col font-medium">Seguridad</td><td>—</td><td class="font-bold">3</td><td class="font-bold">4</td><td class="font-bold">4</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+              <tr><td class="text-left sticky-col font-medium">Simplicidad</td><td>—</td><td class="font-bold">3</td><td class="font-bold">3</td><td class="font-bold">3</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+              <tr class="row-strong"><td class="text-left sticky-col">Puntaje promedio de cada factor</td><td>3.5</td><td>3.2</td><td>3.3</td><td>3.5</td><td>3.3</td><td>3.5</td><td>3.5</td><td>3.3</td><td>3.2</td><td>3.1</td></tr>
+              <tr class="row-strong"><td class="text-left sticky-col">Puntaje escala de cada factor (/10)</td><td>8.8</td><td>8.0</td><td>8.3</td><td>8.8</td><td>8.3</td><td>8.8</td><td>8.8</td><td>8.3</td><td>8.0</td><td>7.4</td></tr>
+              <tr class="row-total"><td class="text-left sticky-col">Promedio obtenido por capacidad</td><td colspan="4">8.5 (Operación)</td><td colspan="3">8.6 (Transición)</td><td colspan="3">8.0 (Revisión)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTADOS -->
+    <section id="resultados" class="section-title animate-on-scroll">
+      <p class="section-eyebrow">Consolidado final</p>
+      <h2 class="section-heading">Resultados globales</h2>
+    </section>
+    <section class="animate-on-scroll">
+      <div class="results-strip">
+        <div style="min-width:160px;">
+          <p class="results-score-label">Puntaje global</p>
+          <p class="results-score-value">83.9<span> / 100</span></p>
+        </div>
+        <div class="results-bars">
+          <div>
+            <div class="results-bar-label"><span>Operación</span><span>33.9 / 40.0</span></div>
+            <div class="results-bar-track"><div class="results-bar-fill" style="width:84.75%;background:var(--operacion);"></div></div>
+          </div>
+          <div>
+            <div class="results-bar-label"><span>Transición</span><span>25.9 / 30.0</span></div>
+            <div class="results-bar-track"><div class="results-bar-fill" style="width:86.3%;background:var(--transicion);"></div></div>
+          </div>
+          <div>
+            <div class="results-bar-label"><span>Revisión</span><span>24.1 / 30.0</span></div>
+            <div class="results-bar-track"><div class="results-bar-fill" style="width:80.3%;background:var(--revision);"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <div class="table-scroll">
+          <table class="report-table">
+            <thead>
+              <tr>
+                <th>Capacidad</th>
+                <th class="text-center">Puntaje global</th>
+                <th>Factor</th>
+                <th class="text-center">Puntaje factor</th>
+                <th class="text-center">Puntaje obtenido</th>
+                <th class="text-center">Puntaje capacidad</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="4" style="font-weight:700;">Operación</td>
+                <td rowspan="4" class="text-center" style="font-weight:600;">40</td>
+                <td>Corrección</td><td class="text-center">10</td><td class="text-center font-bold">8.8</td>
+                <td rowspan="4" class="text-center font-bold" style="color:var(--operacion); font-size:16px;">33.9</td>
+              </tr>
+              <tr><td>Confiabilidad</td><td class="text-center">10</td><td class="text-center font-bold">8.0</td></tr>
+              <tr><td>Usabilidad</td><td class="text-center">10</td><td class="text-center font-bold">8.3</td></tr>
+              <tr><td>Integridad o Seguridad</td><td class="text-center">10</td><td class="text-center font-bold">8.8</td></tr>
+
+              <tr>
+                <td rowspan="3" style="font-weight:700;">Transición</td>
+                <td rowspan="3" class="text-center" style="font-weight:600;">30</td>
+                <td>Portabilidad</td><td class="text-center">10</td><td class="text-center font-bold">8.3</td>
+                <td rowspan="3" class="text-center font-bold" style="color:var(--transicion); font-size:16px;">25.9</td>
+              </tr>
+              <tr><td>Reusabilidad</td><td class="text-center">10</td><td class="text-center font-bold">8.8</td></tr>
+              <tr><td>Interoperabilidad</td><td class="text-center">10</td><td class="text-center font-bold">8.8</td></tr>
+
+              <tr>
+                <td rowspan="3" style="font-weight:700;">Revisión</td>
+                <td rowspan="3" class="text-center" style="font-weight:600;">30</td>
+                <td>Facilidad Mantenimiento</td><td class="text-center">10</td><td class="text-center font-bold">8.3</td>
+                <td rowspan="3" class="text-center font-bold" style="color:var(--revision); font-size:16px;">24.1</td>
+              </tr>
+              <tr><td>Flexibilidad</td><td class="text-center">10</td><td class="text-center font-bold">8.0</td></tr>
+              <tr><td>Facilidad de Prueba</td><td class="text-center">10</td><td class="text-center font-bold">7.8</td></tr>
+
+              <tr class="row-total">
+                <td>Puntaje total</td>
+                <td class="text-center">100</td>
+                <td></td>
+                <td class="text-center">100</td>
+                <td class="text-center">83.9</td>
+                <td class="text-center" style="font-size:16px;">83.9</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCLUSIÓN -->
+    <section id="conclusion" class="section-title animate-on-scroll">
+      <p class="section-eyebrow">Veredicto</p>
+      <h2 class="section-heading">Conclusión</h2>
+    </section>
+    <section class="animate-on-scroll">
+      <div class="conclusion-box">
+        <p>Tras aplicar el Modelo de McCall, Amazon obtuvo una calificación global equilibrada de <strong>83,9 sobre 100</strong>, demostrando ser un sistema sumamente competente, aunque con retos tangibles derivados de su escala masiva.</p>
+        <div class="conclusion-grid">
+          <div class="conclusion-card conclusion-card--operacion">
+            <p>Operación (33,9 / 40)</p>
+            <p>El sitio procesa transacciones y pagos de manera segura y rápida, con altos niveles de confiabilidad y control. El principal desafío radica en que la inmensa densidad de productos, anuncios y recomendaciones genera una ligera sobrecarga visual y cognitiva para usuarios sin experiencia.</p>
+          </div>
+          <div class="conclusion-card conclusion-card--transicion">
+            <p>Transición (25,9 / 30)</p>
+            <p>Presenta una sólida adaptabilidad multiplataforma, operando con fluidez en la mayoría de navegadores y dispositivos móviles, aunque requiere gestionar adecuadamente la carga de scripts pesados en entornos alternativos.</p>
+          </div>
+          <div class="conclusion-card conclusion-card--revision">
+            <p>Revisión (24,1 / 30)</p>
+            <p>La plataforma cuenta con estructuras modulares que facilitan el mantenimiento y las pruebas continuas. Sin embargo, actualizar un entorno de esta magnitud implica un nivel considerable de complejidad técnica para evitar fallos sistémicos.</p>
+          </div>
+        </div>
+        <p><strong>Veredicto final:</strong> Amazon cumple con los estándares de calidad esperados para un software de nivel empresarial. Es un sistema altamente funcional y robusto, pero su propia complejidad estructural e infraestructura masiva impiden calificarlo con la perfección absoluta.</p>
+      </div>
+    </section>
+
+<!-- REFERENCIAS -->
+  <section id="referencias" class="section-title animate-on-scroll">
+    <p class="section-eyebrow">Fuentes citadas</p>
+    <h2 class="section-heading">Referencias bibliográficas</h2>
+  </section>
+  <section class="animate-on-scroll">
+    <ol class="reference-list">
+      <li>Libro Electrónico Multimedial: Recursos Educativos Digitales. Capítulos I y II. (CVUDES). Chinchilla, Z. (2016). <a href="https://aulavirtual-eew.cvudes.edu.co/publico/lems/L.000.011.EATE/Documentos/cap1/Capitulo_Completo.pdf" target="_blank" rel="noopener" class="external-link">Enlace</a></li>
+      <li>Libro Electrónico Multimedial: Evaluación de la Calidad de la Tecnología Educativa. Capítulos II y IV. (CVUDES). Rey, A. (2015). <a href="https://aulavirtual-eew.cvudes.edu.co/publico/lems/L.000.007.EATE/Documentos/cap2/Capitulo_Completo.pdf" target="_blank" rel="noopener" class="external-link">Enlace</a></li>
+      <li>Ortiz, K. (2018). Modelos de Calidad de Software Furps. (Video). <a href="https://www.youtube.com/watch?v=_Y01_ve0deo" target="_blank" rel="noopener" class="external-link">YouTube</a></li>
+      <li>Fillotranni, P. (2007). Calidad del desarrollo de software. Modelos de Calidad de Software. (Universidad Nacional del Sur). <a href="http://www.cs.uns.edu.ar/~prf/teaching/SQ07/clase6.pdf" target="_blank" rel="noopener" class="external-link">PDF</a></li>
+    </ol>
+  </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p style="margin-bottom: 12px; font-weight: 600; color: var(--text);">Integrantes del equipo de trabajo:</p>
+    <p style="margin-bottom: 20px; color: var(--text-muted);">
+      Juan Rodriguez &bull; Einer Molina &bull; Cristhian Cuadros &bull; Esmeyda Peñalver &bull; Andres Prado
+    </p>
+    <p>Informe académico interactivo — Evaluación de software bajo el Modelo de McCall aplicado a Amazon.</p>
+  </footer>
+
+  <script src="Script.js"></script>
+</body>
+</html>
