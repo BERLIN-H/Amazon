@@ -155,6 +155,7 @@ main { max-width: 1100px; margin: 0 auto; padding: 40px 20px; position: relative
 .tag--good { background: rgba(16, 185, 129, 0.15); color: var(--revision); border: 1px solid rgba(16, 185, 129, 0.3); }
 .tag--ok { background: rgba(59, 130, 246, 0.15); color: var(--transicion); border: 1px solid rgba(59, 130, 246, 0.3); }
 .tag--neutral { background: rgba(245, 158, 11, 0.15); color: var(--operacion); border: 1px solid rgba(245, 158, 11, 0.3); }
+.tag--bad { background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); }
 
 /* RESULTADOS STRIP */
 .results-strip { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 28px; display: flex; flex-wrap: wrap; gap: 30px; align-items: center; margin-bottom: 24px; }

@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 4. Animación del círculo de puntaje principal (Score Ring)
   const ringFill = document.getElementById("ringFill");
   const scoreValueEl = document.getElementById("scoreValue");
-  const targetScore = 83.9;
+  const targetScore = 79.0; // Actualizado al nuevo puntaje global
   const circumference = 502.6; // 2 * PI * r (r = 80)
 
   setTimeout(() => {
