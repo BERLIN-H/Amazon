@@ -43,15 +43,18 @@
           </div>
         </div>
 
-        <div class="score-ring animate-on-scroll" id="scoreRing">
-          <svg width="180" height="180" viewBox="0 0 180 180">
-            <circle class="ring-track" cx="90" cy="90" r="80" stroke-width="12"></circle>
-            <circle class="ring-fill" id="ringFill" cx="90" cy="90" r="80" stroke-width="12"
-                    stroke-dasharray="502.6" stroke-dashoffset="502.6"></circle>
+        <div class="score-gauge animate-on-scroll" id="scoreGauge">
+          <svg viewBox="0 0 200 115" width="220" height="127" aria-hidden="true">
+            <path class="gauge-seg gauge-seg--operacion" d="M10,100 A90,90 0 0 1 72.19,14.41"></path>
+            <path class="gauge-seg gauge-seg--transicion" d="M72.19,14.41 A90,90 0 0 1 152.9,27.19"></path>
+            <path class="gauge-seg gauge-seg--revision" d="M152.9,27.19 A90,90 0 0 1 190,100"></path>
+            <line class="gauge-needle" id="gaugeNeedle" x1="100" y1="100" x2="100" y2="28"></line>
+            <circle class="gauge-pivot" cx="100" cy="100" r="6"></circle>
           </svg>
-          <div class="score-ring-label">
-            <span class="score-ring-value" id="scoreValue">0.0</span>
-            <span class="score-ring-suffix">sobre 100</span>
+          <div class="gauge-scale"><span>0</span><span>50</span><span>100</span></div>
+          <div class="score-gauge-label">
+            <span class="score-gauge-value" id="scoreValue">0.0</span>
+            <span class="score-gauge-suffix">puntos sobre 100</span>
           </div>
         </div>
       </div>
@@ -81,18 +84,33 @@
       <h2 class="section-heading">Ficha técnica</h2>
     </section>
     <section class="animate-on-scroll">
-      <div class="table-wrap">
-        <div class="table-scroll">
-          <table class="report-table">
-            <tbody>
-              <tr><td class="sticky-col nowrap" style="width:200px;font-weight:600;">Nombre del software</td><td>Amazon</td></tr>
-              <tr><td class="sticky-col nowrap" style="width:200px;font-weight:600;">Repositorio</td><td>Amazon es una plataforma de comercio electrónico que permite a los usuarios buscar, comparar y adquirir productos y servicios a través de Internet. La plataforma fue creada como una empresa de comercio electrónico y servicios tecnológicos.</td></tr>
-              <tr><td class="sticky-col nowrap" style="width:200px;font-weight:600;">Descripción</td><td>Amazon es una plataforma web y aplicación móvil orientada a la compra y venta de productos. Permite a los usuarios crear cuentas, buscar productos mediante categorías y filtros, consultar características y opiniones, agregar productos al carrito, realizar pagos y hacer seguimiento de los pedidos. Además, integra diferentes servicios relacionados con vendedores, métodos de pago y empresas de logística.</td></tr>
-              <tr><td class="sticky-col nowrap" style="width:200px;font-weight:600;">Licencia de uso</td><td>Amazon es un servicio propietario. Su plataforma, aplicaciones, contenido y software están sujetos a los términos y condiciones establecidos por Amazon. Los usuarios pueden acceder al servicio de acuerdo con las condiciones de uso establecidas por la empresa.</td></tr>
-              <tr><td class="sticky-col nowrap" style="width:200px;font-weight:600;">Área de aplicación</td><td>El software se aplica principalmente en el área del comercio electrónico, permitiendo a usuarios y empresas realizar actividades de compra y venta de productos mediante Internet. También facilita la gestión de pedidos, pagos, productos, vendedores y entregas.</td></tr>
-              <tr><td class="sticky-col nowrap" style="width:200px;font-weight:600;">Link de acceso</td><td><a href="https://www.amazon.com/" target="_blank" rel="noopener" class="external-link">https://www.amazon.com/</a></td></tr>
-            </tbody>
-          </table>
+      <div class="ficha-label">
+        <div class="ficha-label__header">
+          <img class="ficha-label__logo" src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon">
+          <span class="ficha-label__ref">REF. AMZ &middot; MODELO McCALL</span>
+        </div>
+        <div class="ficha-label__perforation"></div>
+        <div class="ficha-label__body">
+          <div class="ficha-label__main">
+            <h3 class="ficha-label__title">Amazon</h3>
+            <p class="ficha-label__field-name" style="margin-top:16px;">Qué es</p>
+            <p class="ficha-label__desc">Amazon es una plataforma de comercio electrónico que permite a los usuarios buscar, comparar y adquirir productos y servicios a través de Internet. La plataforma fue creada como una empresa de comercio electrónico y servicios tecnológicos.</p>
+            <p class="ficha-label__field-name" style="margin-top:18px;">Funcionalidades principales</p>
+            <p class="ficha-label__desc">Amazon es una plataforma web y aplicación móvil orientada a la compra y venta de productos. Permite a los usuarios crear cuentas, buscar productos mediante categorías y filtros, consultar características y opiniones, agregar productos al carrito, realizar pagos y hacer seguimiento de los pedidos. Además, integra diferentes servicios relacionados con vendedores, métodos de pago y empresas de logística.</p>
+          </div>
+          <div class="ficha-label__aside">
+            <div class="ficha-label__stamp">
+              <span>Licencia de uso</span>
+              <strong>Propietaria</strong>
+              <p>Su plataforma, aplicaciones, contenido y software están sujetos a los términos y condiciones establecidos por Amazon. Los usuarios pueden acceder al servicio de acuerdo con las condiciones de uso establecidas por la empresa.</p>
+            </div>
+            <div class="ficha-label__stamp">
+              <span>Área de aplicación</span>
+              <strong>Comercio electrónico</strong>
+              <p>Gestión de pedidos, pagos, productos, vendedores y entregas para usuarios y empresas.</p>
+            </div>
+            <a href="https://www.amazon.com/" target="_blank" rel="noopener" class="ficha-label__link">amazon.com ↗</a>
+          </div>
         </div>
       </div>
     </section>
@@ -104,21 +122,31 @@
     </section>
     <section class="animate-on-scroll">
       <p class="section-lead">Presentado en 1977, el modelo propone una serie de factores de calidad conocidos como factores de McCall (McCall, Richards & Walters, 1977). Su idea central es descomponer el concepto genérico de calidad en tres capacidades importantes para un producto software — operación, transición y revisión — siempre desde la mirada del usuario final (LEM Evaluación de la Calidad Educativa, Capítulo II, CVUDES; Rey, A., 2015).</p>
-      <div class="card-grid">
-        <div class="theory-card theory-card--operacion">
-          <h3>Operación</h3>
-          <p>Evalúa el software tal como se usa día a día: si hace lo que debe (corrección), si es confiable, si es fácil de usar y si protege datos y transacciones (integridad).</p>
-          <p class="factor-list">Corrección · Confiabilidad · Usabilidad · Integridad o Seguridad</p>
+      <div class="capability-track">
+        <div class="capability-track__line"></div>
+        <div class="capability-track__stop capability-track__stop--operacion">
+          <span class="capability-track__marker">1</span>
+          <div class="capability-track__content">
+            <h3>Operación</h3>
+            <p>Evalúa el software tal como se usa día a día: si hace lo que debe (corrección), si es confiable, si es fácil de usar y si protege datos y transacciones (integridad).</p>
+            <p class="factor-list">Corrección · Confiabilidad · Usabilidad · Integridad o Seguridad</p>
+          </div>
         </div>
-        <div class="theory-card theory-card--transicion">
-          <h3>Transición</h3>
-          <p>Mide qué tan bien se adapta el software a nuevos entornos: distintos dispositivos, sistemas operativos y su capacidad de integrarse o reutilizarse en otros contextos.</p>
-          <p class="factor-list">Portabilidad · Reusabilidad · Interoperabilidad</p>
+        <div class="capability-track__stop capability-track__stop--transicion">
+          <span class="capability-track__marker">2</span>
+          <div class="capability-track__content">
+            <h3>Transición</h3>
+            <p>Mide qué tan bien se adapta el software a nuevos entornos: distintos dispositivos, sistemas operativos y su capacidad de integrarse o reutilizarse en otros contextos.</p>
+            <p class="factor-list">Portabilidad · Reusabilidad · Interoperabilidad</p>
+          </div>
         </div>
-        <div class="theory-card theory-card--revision">
-          <h3>Revisión</h3>
-          <p>Analiza la capacidad del software de evolucionar: qué tan fácil es mantenerlo, adaptarlo a cambios y verificarlo mediante pruebas sin romper lo que ya funciona.</p>
-          <p class="factor-list">Facilidad de Mantenimiento · Flexibilidad · Facilidad de Prueba</p>
+        <div class="capability-track__stop capability-track__stop--revision">
+          <span class="capability-track__marker">3</span>
+          <div class="capability-track__content">
+            <h3>Revisión</h3>
+            <p>Analiza la capacidad del software de evolucionar: qué tan fácil es mantenerlo, adaptarlo a cambios y verificarlo mediante pruebas sin romper lo que ya funciona.</p>
+            <p class="factor-list">Facilidad de Mantenimiento · Flexibilidad · Facilidad de Prueba</p>
+          </div>
         </div>
       </div>
     </section>

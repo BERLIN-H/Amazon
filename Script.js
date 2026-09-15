@@ -33,15 +33,15 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(el);
   });
 
-  // 4. Animación del círculo de puntaje principal (Score Ring)
-  const ringFill = document.getElementById("ringFill");
+  // 4. Animación del medidor de puntaje (Score Gauge tipo báscula)
+  const gaugeNeedle = document.getElementById("gaugeNeedle");
   const scoreValueEl = document.getElementById("scoreValue");
   const targetScore = 79.0; // Actualizado al nuevo puntaje global
-  const circumference = 502.6; // 2 * PI * r (r = 80)
 
   setTimeout(() => {
-    const strokeOffset = circumference - (targetScore / 100) * circumference;
-    ringFill.style.strokeDashoffset = strokeOffset;
+    // -90deg = extremo izquierdo (0 pts), 0deg = arriba (50 pts), 90deg = extremo derecho (100 pts)
+    const needleAngle = -90 + (targetScore / 100) * 180;
+    gaugeNeedle.style.transform = `rotate(${needleAngle}deg)`;
 
     let currentScore = 0.0;
     const increment = targetScore / 40;
